@@ -1,0 +1,309 @@
+trqwenyy@gentoo ~/windows-steam $ find "$HOME/windows-steam/pfx/drive_c/Program Files (x86)/Steam" \
+  -maxdepth 2 \
+  -type f \
+  \( -iname 'steamclient.dll' -o -iname 'steamclient64.dll' \) \
+  -print
+/home/trqwenyy/windows-steam/pfx/drive_c/Program Files (x86)/Steam/steamclient.dll
+/home/trqwenyy/windows-steam/pfx/drive_c/Program Files (x86)/Steam/steamclient64.dll
+trqwenyy@gentoo ~/windows-steam $ find "$PROTON/files" \
+  -type f \
+  \( -iname '*steamclient*' -o -iname '*lsteamclient*' \) \
+  -print
+/home/trqwenyy/.local/share/Steam/compatibilitytools.d/proton-cachyos-11.0-20260602-slr-x86_64/files/lib/wine/x86_64-unix/lsteamclient.so
+/home/trqwenyy/.local/share/Steam/compatibilitytools.d/proton-cachyos-11.0-20260602-slr-x86_64/files/lib/wine/i386-windows/lsteamclient.dll
+/home/trqwenyy/.local/share/Steam/compatibilitytools.d/proton-cachyos-11.0-20260602-slr-x86_64/files/lib/wine/i386-unix/lsteamclient.so
+/home/trqwenyy/.local/share/Steam/compatibilitytools.d/proton-cachyos-11.0-20260602-slr-x86_64/files/lib/wine/x86_64-windows/lsteamclient.dll
+trqwenyy@gentoo ~/windows-steam $ pgrep -af 'steam|steamwebhelper'
+trqwenyy@gentoo ~/windows-steam $ export PROTON="$HOME/.local/share/Steam/compatibilitytools.d/proton-cachyos-11.0-20260602-slr-x86_64"
+export WINEPREFIX="$HOME/windows-steam/pfx"
+export WINEDLLPATH="$PROTON/files/lib64/wine:$PROTON/files/lib/wine"
+trqwenyy@gentoo ~/windows-steam $ export WINEDLLOVERRIDES="steamclient=n,b;steamclient64=n,b"
+trqwenyy@gentoo ~/windows-steam $ "$PROTON/files/bin/wine" \
+  "$WINEPREFIX/drive_c/Program Files (x86)/Steam/Steam.exe" \
+  -no-cef-sandbox
+fsync: up and running.
+002c:fixme:winediag:loader_init wine-cachyos 11.0 is a testing version containing experimental patches.
+002c:fixme:winediag:loader_init this wine contains many experimental patches, please don't report bugs to winehq.org.
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+00a4:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+00cc:fixme:wineusb:add_usb_device Interface 1 has 2 alternate settings; using the first one.
+00cc:fixme:wineusb:add_usb_device Interface 2 has 2 alternate settings; using the first one.
+00cc:fixme:wineusb:add_usb_device Interface 0 has 2 alternate settings; using the first one.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+0024:fixme:winediag:loader_init wine-cachyos 11.0 is a testing version containing experimental patches.
+0024:fixme:winediag:loader_init this wine contains many experimental patches, please don't report bugs to winehq.org.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+00cc:fixme:wineusb:query_id Unhandled ID query type 0x5.
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+012c:fixme:oleacc:find_class_data unhandled window class: L"#32769"
+012c:fixme:uiautomation:uia_get_providers_for_hwnd Override provider callback currently unimplemented.
+012c:fixme:uiautomation:default_uia_provider_callback Default ProviderType_NonClientArea provider unimplemented.
+00e4:fixme:shcore:SetCurrentProcessExplicitAppUserModelID L"Valve.Steam.Client": stub
+012c:fixme:oleacc:find_class_data unhandled window class: L"#32769"
+012c:fixme:uiautomation:base_hwnd_fragment_get_FragmentRoot 00000000008262A8, 000000000031F9C8: stub!
+012c:fixme:uiautomation:base_hwnd_fragment_GetEmbeddedFragmentRoots 00000000008262A8, 000000000031F9D8: stub!
+00e4:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+00e4:fixme:process:SetProcessShutdownParameters (00000100, 00000000): partial stub.
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+0148:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0148:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0148:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0148:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\DXGI.dll") not found
+0148:fixme:kernelbase:AppPolicyGetProcessTerminationMethod FFFFFFFFFFFFFFFA, 000000000010FEE0
+00e4:fixme:file:GetLongPathNameW UNC pathname L"\\\\?\\C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe"
+00e4:fixme:file:GetLongPathNameW UNC pathname L"\\\\?\\C:\\Program Files (x86)\\Steam\\bin\\cef\\cef.win64\\steamwebhelper.exe"
+00e4:fixme:file:GetLongPathNameW UNC pathname L"\\\\?\\C:\\Program Files (x86)\\Steam\\logs\\cef_log.txt"
+00e4:fixme:file:GetLongPathNameW UNC pathname L"\\\\?\\C:\\Program Files (x86)\\Steam\\logs\\cef_log.txt"
+00e4:fixme:dwmapi:DwmSetWindowAttribute (00000000000200A8, 2, 000000000010E680, 4) stub
+00e4:fixme:dwmapi:DwmExtendFrameIntoClientArea (00000000000200A8, 000000000010E650) stub
+00e4:fixme:wtsapi:WTSRegisterSessionNotification Stub 00000000000200A8 0x00000000
+015c:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+015c:fixme:shcore:SetCurrentProcessExplicitAppUserModelID L"Valve.Steam.Client": stub
+015c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+015c:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+015c:fixme:file:ReplaceFileW Ignoring flags 2
+015c:fixme:nls:RtlGetThreadPreferredUILanguages 00000038, 000000000010E41C, 0000000000000000 000000000010E418
+015c:fixme:nls:get_dummy_preferred_ui_language (0x38 0x409 000000000010E41C 0000000000000000 000000000010E418) returning a dummy value (current locale)
+015c:fixme:nls:RtlGetThreadPreferredUILanguages 00000038, 000000000010E41C, 000000000010E400 000000000010E418
+015c:fixme:nls:get_dummy_preferred_ui_language (0x38 0x409 000000000010E41C 000000000010E400 000000000010E418) returning a dummy value (current locale)
+015c:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010E14C, 4): stub
+015c:fixme:uxtheme:SetPreferredAppMode 1: stub
+015c:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+0190:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:ntdll:EtwEventSetInformation (deadbeef, 2, 00004B7400285168, 16) stub
+015c:fixme:win:RegisterSuspendResumeNotification 00000000000100BC, 0: stub.
+0198:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:winsock:WSALookupServiceBeginW (000000000010DE20 0xff0 000000000010DE98) Stub!
+015c:fixme:shcore:IsOS (OS_DOMAINMEMBER) What should we return here?
+015c:fixme:win:RegisterPointerDeviceNotifications (00000000000100C4 0): stub
+015c:fixme:win:GetPointerDevices (000000000010D864 0000000000000000): partial stub
+015c:fixme:win:GetPointerDevices (000000000010D864 0000000000000000): partial stub
+015c:fixme:system:NtUserDisplayConfigGetDeviceInfo Unimplemented packet type 11.
+015c:fixme:combase:RoActivateInstance (00000000064CB520, 000000000010D7C8): semi-stub
+015c:fixme:combase:RoGetActivationFactory (L"Windows.UI.ViewManagement.UISettings", {00000035-0000-0000-c000-000000000046}, 000000000010D628): semi-stub
+015c:fixme:ui:uisettings2_add_TextScaleFactorChanged iface 00000000064BB5A8, handler 00006724001DC840, cookie 00006FFFF94783C8 stub!
+015c:fixme:ui:uisettings2_get_TextScaleFactor iface 00000000064BB5A8, value 000000000010D800 stub!
+015c:fixme:win:GetPointerDevices (000000000010D864 0000000000000000): partial stub
+015c:fixme:win:GetPointerDevices (000000000010D864 0000000000000000): partial stub
+015c:fixme:system:NtUserDisplayConfigGetDeviceInfo Unimplemented packet type 11.
+015c:fixme:ui:uisettings2_get_TextScaleFactor iface 00000000064BB5A8, value 000000000010D800 stub!
+01ac:fixme:dbghelp:elf_search_auxv can't find symbol in module
+01b8:fixme:wtsapi:WTSRegisterSessionNotification Stub 00000000000100C4 0x00000000
+018c:fixme:netapi32:NetGetAadJoinInformation ((null), 0000000004FFF578): stub
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+01e8:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+01e8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+01e8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+01e8:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+01e8:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+01e8:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+01e8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+01e8:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+01e8:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+01e8:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+01e8:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+0188:fixme:wpc:WindowsParentalControls_GetUserSettings ((null) 0000000004EFF810)
+018c:fixme:file:NtLockFile I/O completion on lock not implemented yet
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+0214:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+0194:fixme:combase:RoGetActivationFactory (L"Windows.UI.Notifications.ToastNotificationManager", {50ac103f-d235-4598-bbef-98fe4d1a3ad4}, 0000000005AFF7A8): semi-stub
+0194:err:combase:RoGetActivationFactory Failed to find library for L"Windows.UI.Notifications.ToastNotificationManager"
+0194:fixme:combase:RoGetActivationFactory (L"Windows.UI.Notifications.ToastNotificationManager", {50ac103f-d235-4598-bbef-98fe4d1a3ad4}, 0000000005AFF5B8): semi-stub
+0194:err:combase:RoGetActivationFactory Failed to find library for L"Windows.UI.Notifications.ToastNotificationManager"
+01c4:fixme:virtual:prefetch_memory (process=0xffffffffffffffff,flags=0) NtSetInformationVirtualMemory(VmPrefetchInformation) partial stub
+01c8:fixme:file:ReplaceFileW Ignoring flags 2
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+0194:fixme:file:ReplaceFileW Ignoring flags 2
+01bc:fixme:file:ReplaceFileW Ignoring flags 2
+0224:fixme:hnetcfg:fwpolicy2_get_CurrentProfileTypes 00000000006EC920 00000000092EF52C
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+0194:fixme:file:ReplaceFileW Ignoring flags 2
+01bc:fixme:file:ReplaceFileW Ignoring flags 2
+01c4:fixme:file:ReplaceFileW Ignoring flags 2
+01c0:fixme:file:ReplaceFileW Ignoring flags 2
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+0194:fixme:wtsapi:WTSQuerySessionInformationW returning 0 protocol type
+0228:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:sync:QueryUnbiasedInterruptTimePrecise (000000000010DDF8): semi-stub.
+015c:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\DXGI.DLL") not found
+015c:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+015c:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+015c:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+0234:fixme:kernelbase:AppPolicyGetThreadInitializationType FFFFFFFFFFFFFFFA, 000000000986FF50
+015c:fixme:win:GetPointerDevices (000000000010F604 0000000000000000): partial stub
+015c:fixme:win:GetPointerDevices (000000000010F604 0000000000000000): partial stub
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x588,0x10eee0,0x00000010,(nil)) stub
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x5b8,0x10f260,0x00000010,(nil)) stub
+0194:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x5b4,0x5aff590,0x00000010,(nil)) stub
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+0194:fixme:file:ReplaceFileW Ignoring flags 2
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x610,0x10f260,0x00000010,(nil)) stub
+01bc:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x618,0x71ff590,0x00000010,(nil)) stub
+015c:fixme:win:RegisterPowerSettingNotification (00000000000100C4,{5d3e9a59-e9d5-4b00-a6bd-ff34ff516548},0): stub
+015c:fixme:win:RegisterPowerSettingNotification (00000000000100C4,{a7ad8041-b45a-4cae-87a3-eecbb468a9e1},0): stub
+0194:fixme:file:ReplaceFileW Ignoring flags 2
+01c8:fixme:file:ReplaceFileW Ignoring flags 2
+023c:err:steamclient:create_win_interface Don't recognize interface name: CLIENTENGINE_INTERFACE_VERSION005
+018c:fixme:crypt:CRYPT_SysRegOpenStoreW CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE, L"ROOT": stub
+018c:fixme:crypt:CRYPT_SysRegOpenStoreW CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE, L"CA": stub
+018c:fixme:crypt:CRYPT_SysRegOpenStoreW CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE, L"TrustedPeople": stub
+018c:fixme:crypt:CRYPT_SysRegOpenStoreW CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE, L"Disallowed": stub
+018c:fixme:crypt:CRYPT_RegControl CERT_STORE_CTRL_AUTO_RESYNC: stub
+018c:fixme:crypt:CRYPT_RegControl CERT_STORE_CTRL_AUTO_RESYNC: stub
+018c:fixme:crypt:CRYPT_RegControl CERT_STORE_CTRL_AUTO_RESYNC: stub
+018c:fixme:crypt:CRYPT_RegControl CERT_STORE_CTRL_AUTO_RESYNC: stub
+0210:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+01ac:fixme:dbghelp:elf_search_auxv can't find symbol in module
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+0210:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0210:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0210:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+0210:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+0210:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+025c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0210:fixme:ntdll:EtwEventSetInformation (deadbeef, 2, 00001F58000C4628, 16) stub
+0210:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+0264:fixme:winsock:WSALookupServiceBeginW (00000000041FE660 0xff0 00000000041FE6D8) Stub!
+027c:fixme:file:NtLockFile I/O completion on lock not implemented yet
+0288:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+027c:fixme:virtual:prefetch_memory (process=0xffffffffffffffff,flags=0) NtSetInformationVirtualMemory(VmPrefetchInformation) partial stub
+0220:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+018c:fixme:wlanapi:WlanEnumInterfaces (0000000000000001, 0000000000000000, 0000000004FFF1E0) semi-stub
+0264:fixme:winsock:setsockopt Ignoring SO_RANDOMIZE_PORT
+0288:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0288:fixme:file:ReplaceFileW Ignoring flags 2
+0288:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+0264:fixme:winsock:setsockopt Ignoring SO_RANDOMIZE_PORT
+0220:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0220:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0220:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+0220:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+0264:fixme:winsock:setsockopt Ignoring SO_RANDOMIZE_PORT
+0288:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0288:fixme:file:ReplaceFileW Ignoring flags 2
+0288:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0220:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+02ac:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0220:fixme:ntdll:EtwEventSetInformation (deadbeef, 2, 00006E48000C4628, 16) stub
+0220:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+0244:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+0244:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0244:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0244:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+0244:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+0244:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+0244:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0244:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0244:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0244:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+0244:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x578,0x10f4f0,0x00000010,(nil)) stub
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+018c:fixme:ntdll:NtPowerInformation semi-stub: SystemPowerInformation
+01a4:err:wininet:open_http_connection create_netconn failed: 12029
+023c:err:steamclient:create_win_interface Don't recognize interface name: CLIENTENGINE_INTERFACE_VERSION005
+02c8:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+02c8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02c8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02c8:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+02c8:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+02c8:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+02c8:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02c8:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02c8:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02c8:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02c8:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x39c,0x10f4f0,0x00000010,(nil)) stub
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+02dc:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+02dc:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02dc:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02dc:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+02dc:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+02dc:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+02dc:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02dc:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02dc:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02dc:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02dc:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x9c,0x10ed90,0x00000010,(nil)) stub
+018c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x34c,0x4fff0b0,0x00000010,(nil)) stub
+018c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x5b4,0x4fff0b0,0x00000010,(nil)) stub
+018c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x618,0x4fff0b0,0x00000010,(nil)) stub
+01e0:fixme:process:CreateProcessInternalW Unsupported attribute 0x20007.
+0210:fixme:kernelbase:AppPolicyGetProcessTerminationMethod FFFFFFFFFFFFFFFA, 000000000010FEE0
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x274,0x10f670,0x00000010,(nil)) stub
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x26c,0x10f670,0x00000010,(nil)) stub
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x26c,0x10f670,0x00000010,(nil)) stub
+015c:fixme:process:NtQueryInformationProcess ProcessCycleTime (0x26c,0x10f670,0x00000010,(nil)) stub
+0190:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0228:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0214:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0194:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+0194:fixme:file:ReplaceFileW Ignoring flags 2
+0194:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+018c:fixme:file:ReplaceFileW Ignoring flags 2
+018c:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+015c:fixme:win:UnregisterPowerSettingNotification (00000000DEADBEEF): stub
+015c:fixme:win:UnregisterPowerSettingNotification (00000000DEADBEEF): stub
+015c:fixme:kernelbase:AppPolicyGetProcessTerminationMethod FFFFFFFFFFFFFFFA, 000000000010FEE0
+02f4:err:kerberos:kerberos_LsaApInitializePackage no Kerberos support, expect problems
+0050:fixme:ntoskrnl:kernel_object_from_handle No constructor for type L"Token"
+02f4:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02f4:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02f4:fixme:heap:RtlSetHeapInformation HEAP_INFORMATION_CLASS 1 not implemented!
+02f4:fixme:ntdll:EtwRegisterTraceGuidsW   register trace class {00000000-0000-0000-0000-000000000000}
+02f4:fixme:process:GetProcessMitigationPolicy (FFFFFFFFFFFFFFFF, 4, 000000000010F77C, 4): stub
+02f4:fixme:thread:NtSetInformationThread ThreadPowerThrottling stub!
+02f4:err:module:import_dll Library libvkd3d-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02f4:err:module:import_dll Library libvkd3d-shader-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02f4:err:module:import_dll Library libvkd3d-utils-1.dll (which is needed by L"C:\\windows\\system32\\wined3d.dll") not found
+02f4:err:module:import_dll Library wined3d.dll (which is needed by L"C:\\windows\\system32\\dxgi.dll") not found
+0050:fixme:n
