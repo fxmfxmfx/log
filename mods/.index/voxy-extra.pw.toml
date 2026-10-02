@@ -1,0 +1,16 @@
+filename = 'voxy-extra-0.2.6.jar'
+name = 'Voxy Extra'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-mc-versions = [ '26.2' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '1920837606543ec93c13e2759604e1a00c55f1ee30bdd748e5b1f0b8e63bdce3b91d6f65bc9f06d8399addea2802995a2dfb22f495946b3d5971dca345ab259c'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/znQnhrkQ/versions/LzkiYiS2/voxy-extra-0.2.6.jar'
+
+[update.modrinth]
+mod-id = 'znQnhrkQ'
+version = 'LzkiYiS2'

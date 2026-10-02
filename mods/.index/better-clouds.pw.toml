@@ -1,0 +1,16 @@
+filename = 'better-clouds-1.14.4+26.2-fabric.jar'
+name = 'Better Clouds'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-mc-versions = [ '26.2' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '82aefd76c87c1784dabc46b1bbe03facc3bd77bd7cfa3a20f6ecbedeb21ce17a000bbc7536aa3220e1b3e86a47e1b09b93ead9c9570e4ab4cf9c7b2672b76711'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/5srFLIaK/versions/6hLnIcGQ/better-clouds-1.14.4%2B26.2-fabric.jar'
+
+[update.modrinth]
+mod-id = '5srFLIaK'
+version = '6hLnIcGQ'
